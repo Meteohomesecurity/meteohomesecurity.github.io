@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Meteo Home Security</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/LogoMHS4.png">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="indexIng.html" class="logo-container">
+            <img src="images/LogoMHS4.png" alt="MHS Logo" class="logo-icon">
+            <span id="logo-text">Meteo Home Security</span>
+        </a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            
+        </div>
+        <ul class="nav-links">
+            <li><a href="prodottiIng.html">Products</a></li>
+            <li><a href="chi-siamoIng.html">About Us</a></li>
+            <li><a href="contattiIng.html">Contact Us</a></li>
+                        <li><a href="http:/localhost/cgi-bin/datiIng.exe">Data</a></li>
+
+        </ul>
+        <div class="nav-right">
+            <div class="search-container">
+                <input type="checkbox" id="search-toggle" class="search-checkbox">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Search...">
+                    <label for="search-toggle" class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </label>
+                </div>
+            </div>
+
+            <a href="carrello.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+
+            <div class="login-dropdown">
+                <a href="#" class="login-btn">
+                    <i class="fas fa-user"></i> Account
+                </a>
+                <div class="login-menu">
+                    <h3>Log in to your account</h3>
+                    <form action="cgi-bin/login.cgi" method="POST">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn-login-submit">Log in</button>
+                    </form>
+                    <div class="login-footer">
+                        <a href="#">Forgotten Password?</a>
+                        <hr>
+                        <p>Don't have an account? <a href="registrazioneIng.html">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="language-dropdown">
+                <button class="language-btn">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="EN">
+                    EN <span class="arrow"></span>
+                </button>
+                <div class="language-menu">
+                    <a href="carrello.html"><img src="https://flagcdn.com/w20/it.png" alt="IT"> Italian</a>
+                    <a href="carrelloIng.html"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header cart-header">
+        <h1><i class="fas fa-shopping-cart"></i> Your Cart</h1>
+    </section>
+
+    <section class="cart-section">
+        <div class="cart-container">
+            <div class="cart-items" id="cart-items" data-testid="cart-items">
+                <div class="empty-cart" id="empty-cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <h3>Your cart is empty</h3>
+                    <p>Add some products to get started!</p>
+                    <a href="prodottiIng.html" class="btn-main">Go to Products</a>
+                </div>
+            </div>
+
+            <div class="cart-summary" id="cart-summary" data-testid="cart-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotale">€0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span id="spedizione">€0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="totale">€0.00</span>
+                </div>
+                <button class="checkout-btn" onclick="checkout()" data-testid="checkout-btn">
+                    <i class="fas fa-lock"></i> Proceed to Checkout
+                </button>
+                <p class="secure-text"><i class="fas fa-shield-alt"></i> Secure payment guaranteed</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="checkout-section" id="checkout-section" style="display: none;">
+        <div class="checkout-container">
+            <h2><i class="fas fa-credit-card"></i> Shipping Details</h2>
+            <form action="avvisoIng.html" method="GET" id="checkout-form" data-testid="checkout-form">
+            <!--<form action="cgi-bin/ordine.cgi" method="POST" id="checkout-form" data-testid="checkout-form">-->
+                <input type="hidden" name="carrello" id="carrello-data">
+                <input type="hidden" name="totale" id="totale-data">
+                
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nome-checkout">First Name *</label>
+                        <input type="text" id="nome-checkout" name="nome" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="cognome-checkout">Last Name *</label>
+                        <input type="text" id="cognome-checkout" name="cognome" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="email-checkout">Email *</label>
+                        <input type="email" id="email-checkout" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="telefono-checkout">Phone *</label>
+                        <input type="tel" id="telefono-checkout" name="telefono" required>
+                    </div>
+                </div>
+                <div class="input-group full-width">
+                    <label for="indirizzo">Address *</label>
+                    <input type="text" id="indirizzo" name="indirizzo" required>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="citta">City *</label>
+                        <input type="text" id="citta" name="citta" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="cap">ZIP Code *</label>
+                        <input type="text" id="cap" name="cap" required pattern="[0-9]{5}">
+                    </div>
+                </div>
+                <div class="input-group full-width">
+                    <label for="note">Notes (optional)</label>
+                    <textarea id="note" name="note" rows="3"></textarea>
+                </div>
+
+                <h3>Payment Method</h3>
+                <div class="payment-methods">
+                    <label class="payment-option">
+                        <input type="radio" name="pagamento" value="carta" checked>
+                        <span><i class="fas fa-credit-card"></i> Credit Card</span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="pagamento" value="paypal">
+                        <span><i class="fab fa-paypal"></i> PayPal</span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="pagamento" value="contrassegno">
+                        <span><i class="fas fa-truck"></i> Cash on Delivery (+€5)</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn" data-testid="confirm-order-btn">
+                    <i class="fas fa-check"></i> Confirm Order
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Meteo Home Security</h3>
+                <p>Smart windows for a safer home.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Secure Payments</h3>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Meteo Home Security - School Project</p>
+        </div>
+    </footer>
+
+    <script src="js/carrello.js"></script>
+    <script>
+        // Load the cart on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            mostraCarrello();
+        });
+    </script>
+    <!--
+    <script>
+    // 1. Handle LOGIN form (in the Navbar)
+    const loginForm = document.querySelector('.login-menu form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents page reload
+            alert("Thank you! Please note that login is disabled as this is a school project.");
+            this.reset();
+        });
+    }
+
+    // 2. Handle CHECKOUT form (Shipping and Payment)
+    const checkoutForm = document.getElementById('checkout-form');
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents the form from being sent to the CGI
+            
+            // Final message explaining it's a school project
+            alert("Order received! However, no payment will be processed because this is a school project.");
+            
+            // Optional: Clear the cart and redirect to home
+            if (typeof localStorage !== 'undefined') {
+                localStorage.removeItem('cart'); // Assuming you use localStorage for the cart
+            }
+            
+            window.location.href = "index.html";
+        });
+    }
+</script>-->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if(hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Chiude il menu se clicchi fuori
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

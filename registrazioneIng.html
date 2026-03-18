@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Meteo Home Security</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/LogoMHS4.png">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="indexIng.html" class="logo-container">
+            <img src="images/LogoMHS4.png" alt="MHS Logo" class="logo-icon">
+            <span id="logo-text">Meteo Home Security</span>
+        </a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            
+        </div>
+        <ul class="nav-links">
+            <li><a href="prodottiIng.html">Products</a></li>
+            <li><a href="chi-siamoIng.html">About Us</a></li>
+            <li><a href="contattiIng.html">Contacts</a></li>
+            <li><a href="http:/localhost/cgi-bin/datiIng.exe">Data</a></li>
+
+        </ul>
+        <div class="nav-right">
+            <a href="carrelloIng.html" class="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <!-- REGISTRATION -->
+    <section class="auth-section">
+        <div class="auth-container">
+            <div class="auth-header">
+                <i class="fas fa-user-plus"></i>
+                <h1>Create an Account</h1>
+                <p>Register to access all the benefits</p>
+            </div>
+
+            <form action="avvisoIng.html" method="GET" class="auth-form" data-testid="register-form">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nome">First Name *</label>
+                        <input type="text" id="nome" name="nome" required data-testid="register-nome">
+                    </div>
+                    <div class="input-group">
+                        <label for="cognome">Last Name *</label>
+                        <input type="text" id="cognome" name="cognome" required data-testid="register-cognome">
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required data-testid="register-email">
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="telefono">Phone</label>
+                    <input type="tel" id="telefono" name="telefono" data-testid="register-telefono">
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" name="password" required minlength="8" data-testid="register-password">
+                        <small>Minimum 8 characters</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="conferma-password">Confirm Password *</label>
+                        <input type="password" id="conferma-password" name="conferma_password" required data-testid="register-confirm-password">
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="indirizzo">Address</label>
+                    <input type="text" id="indirizzo" name="indirizzo" data-testid="register-indirizzo">
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="citta">City</label>
+                        <input type="text" id="citta" name="citta" data-testid="register-citta">
+                    </div>
+                    <div class="input-group">
+                        <label for="cap">ZIP Code</label>
+                        <input type="text" id="cap" name="cap" pattern="[0-9]{5}" data-testid="register-cap">
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="newsletter">
+                        I want to receive news and special offers
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="privacy" required>
+                        I accept the <a href="#">Privacy Policy</a> and the <a href="#">Terms of Service</a> *
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn" data-testid="register-submit">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="loginIng.html">Log in</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Meteo Home Security - School Project</p>
+        </div>
+    </footer>
+
+    <script src="js/carrello.js"></script>
+    <!--
+    <script>
+    document.querySelector('.auth-form').addEventListener('submit', function(e) {
+        // 1. Prevents the form from submitting and reloading the page
+        e.preventDefault();
+
+        // 2. Checks if passwords match
+        const password = document.getElementById('password').value;
+        const conferma = document.getElementById('conferma-password').value;
+
+        if (password !== conferma) {
+            alert("Error: Passwords do not match!");
+            return;
+        }
+
+        // 3. Displays the confirmation message
+        alert("Thank you for registering! Please note that your account cannot be created because this is a school project.");
+        
+        // 4. Resets the form fields
+        this.reset();
+        
+        // 5. (Optional) Redirects the user to the home page
+        // window.location.href = "index.html";
+    });
+</script>-->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if(hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Chiude il menu se clicchi fuori
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

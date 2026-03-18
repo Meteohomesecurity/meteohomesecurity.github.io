@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts - Meteo Home Security</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/LogoMHS4.png">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="indexIng.html" class="logo-container">
+            <img src="images/LogoMHS4.png" alt="Logo MHS" class="logo-icon">
+            <span id="logo-text">Meteo Home Security</span>
+        </a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            
+        </div>
+        <ul class="nav-links">
+            <li><a href="prodottiIng.html">Products</a></li>
+            <li><a href="chi-siamoIng.html">About us</a></li>
+            <li><a href="contattiIng.html" class="active">Contact us</a></li>
+            <li><a href="http:/localhost/cgi-bin/datiIng.exe">Data</a></li>
+
+        </ul>
+        <div class="nav-right">
+            <!-- Barra di ricerca -->
+            <div class="search-container">
+                <input type="checkbox" id="search-toggle" class="search-checkbox">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Cerca...">
+                    <label for="search-toggle" class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Carrello -->
+            <a href="carrelloIng.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+
+            <!-- Login -->
+            <div class="login-dropdown">
+                <a href="#" class="login-btn">
+                    <i class="fas fa-user"></i> Account
+                </a>
+                <div class="login-menu">
+                    <h3>Log in to your account</h3>
+                    
+                    <form action="avviso.html" method="GET">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn-login-submit">Log In</button>
+                    </form>
+
+                    <div class="login-footer">
+                        <a href="#">Forgotten password?</a>
+                        <hr>
+                        <p>Don't have an account? <a href="registrazione.html">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lingua -->
+            <div class="language-dropdown">
+                <button class="language-btn">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="EN">
+                    EN <span class="arrow"></span>
+                </button>
+                <div class="language-menu">
+                    <a href="contatti.html"><img src="https://flagcdn.com/w20/it.png" alt="IT"> Italiano</a>
+                    <a href="contattiIng.html"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <section class="page-header contact-header">
+        <h1>Contact us</h1>
+        <p>We are here to help you</p>
+    </section>
+
+<section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Address</h3>
+                        <p>Via Peruzzi 9<br>41012 Carpi, Italy</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p><a href = "tel:+39 1234567890">+39 123 456 7890</a></p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:meteohome.security.fsl26@gmail.com"></a>meteohome.security.fsl26@gmail.com</p>
+                    </div>
+                </div>
+                <form action="avvisoIng.html" method="GET" class="contact-form" target="_blank" data-testid="contact-form"></form>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Hours</h3>
+                        <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 9:00 AM - 1:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="social-contact">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/meteo.home.security?igsh=MTJrdjRvNnZlM2libw=="><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <h2>Send Us a Message</h2>
+                <form action="cgi-bin/contatti.cgi" method="POST" class="contact-form" data-testid="contact-form">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="nome">First Name</label>
+                            <input type="text" id="nome" name="nome" required data-testid="contact-nome">
+                        </div>
+                        <div class="input-group">
+                            <label for="cognome">Last Name</label>
+                            <input type="text" id="cognome" name="cognome" required data-testid="contact-cognome">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required data-testid="contact-email">
+                        </div>
+                        <div class="input-group">
+                            <label for="telefono">Phone</label>
+                            <input type="tel" id="telefono" name="telefono" data-testid="contact-telefono">
+                        </div>
+                    </div>
+                    <div class="input-group full-width">
+                        <label for="oggetto">Subject</label>
+                        <input type="text" id="oggetto" name="oggetto" required data-testid="contact-oggetto">
+                    </div>
+                    <div class="input-group full-width">
+                        <label for="messaggio">Message</label>
+                        <textarea id="messaggio" name="messaggio" rows="6" required data-testid="contact-messaggio"></textarea>
+                    </div>
+                    <a href="avvisoIng.html" class="submit-btn">Send Message</a>
+                </form>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <h2>Our Location</h2>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.872099576602!2d10.868499375720786!3d44.783412778604585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477f8d2b8f68203f%3A0x18bf11e34947dd65!2sItis%20Leonardo%20Da%20Vinci!5e0!3m2!1sit!2sit!4v1773215416543!5m2!1sit!2sit" 
+                width="100%" 
+                height="400" 
+                style="border:0; border-radius: 15px;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Meteo Home Security</h3>
+                <p>Smart windows for a safer home.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="prodottiIng.html">Products</a></li>
+                    <li><a href="chi-siamoIng.html">About Us</a></li>
+                    <li><a href="contattiIng.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Meteo Home Security - School Project</p>
+        </div>
+    </footer>
+
+    <script src="js/carrello.js"></script>
+    <!--questo per avviso-->
+    <script>
+    // Usa un solo blocco pulito
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function() {
+            // Svuota i campi dopo mezzo secondo
+            setTimeout(() => {
+                this.reset();
+            }, 500);
+        });
+    }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if(hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Chiude il menu se clicchi fuori
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
