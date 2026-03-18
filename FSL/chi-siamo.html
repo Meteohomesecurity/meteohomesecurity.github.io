@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Siamo - Meteo Home Security</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/LogoMHS4.png">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="images/LogoMHS4.png" alt="Logo MHS" class="logo-icon">
+            <span id="logo-text">Meteo Home Security</span>
+        </a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            
+        </div>
+        <ul class="nav-links">
+            <li><a href="prodotti.html">Prodotti</a></li>
+            <li><a href="chi-siamo.html" class="active">Chi Siamo</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="http:/localhost/cgi-bin/dati.exe">Dati</a></li>
+
+
+        </ul>
+       <div class="nav-right">
+            <!-- Barra di ricerca -->
+            <div class="search-container">
+                <input type="checkbox" id="search-toggle" class="search-checkbox">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Cerca...">
+                    <label for="search-toggle" class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Carrello -->
+            <a href="carrello.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+
+            <!-- Login -->
+            <div class="login-dropdown">
+                <a href="#" class="login-btn">
+                    <i class="fas fa-user"></i> Account
+                </a>
+                <div class="login-menu">
+                    <h3>Accedi al tuo account</h3>
+                    <form action="cgi-bin/login.cgi" method="POST">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn-login-submit">Accedi</button>
+                    </form>
+                    <div class="login-footer">
+                        <a href="#">Password dimenticata?</a>
+                        <hr>
+                        <p>Non hai un account? <a href="registrazione.html">Registrati</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lingua -->
+            <div class="language-dropdown">
+                <button class="language-btn">
+                    <img src="https://flagcdn.com/w20/it.png" alt="IT">
+                    IT <span class="arrow"></span>
+                </button>
+                <div class="language-menu">
+                    <a href="chi-siamo.html"><img src="https://flagcdn.com/w20/it.png" alt="IT"> Italiano</a>
+                    <a href="chi-siamoIng.html"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a>
+                </div>
+            </div>
+        </div>
+        
+    </nav>
+
+    <!-- HEADER -->
+    <section class="page-header about-header">
+        <h1>Chi Siamo</h1>
+        <p>La nostra storia e la nostra missione</p>
+    </section>
+
+    <!-- STORIA -->
+    <section class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>La Nostra Storia</h2>
+                <p>Meteo Home Security nasce da un progetto scolastico con l'obiettivo di rendere le case più sicure e confortevoli attraverso la tecnologia Arduino.</p>
+                <p>L'idea è semplice ma rivoluzionaria: creare un sistema che rileva automaticamente la temperatura, la presenza di gas pericolosi e le condizioni meteorologiche, aprendo e chiudendo le finestre in modo intelligente.</p>
+               
+            </div>
+            <div class="about-image">
+                <img class="fotoUS" src="images/fotoAboutUs.jpeg">
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSIONE -->
+    <section class="mission-section">
+        <h2>La Nostra Missione</h2>
+        <div class="mission-cards">
+            <div class="mission-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Sicurezza</h3>
+                <p>Proteggere le famiglie da pericoli come fughe di gas attraverso l'automazione intelligente.</p>
+            </div>
+            <div class="mission-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Comfort</h3>
+                <p>Mantenere sempre il clima perfetto in casa senza sforzo.</p>
+            </div>
+            <div class="mission-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Efficienza</h3>
+                <p>Ridurre i consumi energetici attraverso una gestione intelligente della ventilazione.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team-section">
+        <h2>Il Nostro Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div ><img src="images/PMePMO.jpeg" alt="PMePMO" height="150px" class="team-avatar"></div>
+                <h3>PM e PMO</h3>
+            </div>
+            <div class="team-card">
+                <div ><img src="images/GruppoMarketing.jpeg" alt="GruppoMarketing" height="150px" class="team-avatar"></div>
+                <h3>Marketing team</h3>
+            </div>
+            <div class="team-card">
+                <div ><img src="images/GruppoSviluppoSoftware.jpeg" alt="GruppoSviluppoSoftware" height="150px" class="team-avatar"></div>
+                <h3>Developers team</h3>
+            </div>
+            <div class="team-card">
+                <div ><img src="images/AnalystTeam.jpeg" alt="GruppoAnalyst" height="150px" class="team-avatar"></div>
+                <h3>Analyst team</h3>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- TECNOLOGIA -->
+    <section class="tech-section">
+        <h2>La Tecnologia</h2>
+        <div class="tech-content">
+            <div class="tech-item">
+                <i class="fa-solid fa-infinity"></i>
+                <h3>Arduino</h3>
+                <p>Il cuore del nostro sistema, programmato per gestire sensori e attuatori.</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-microchip"></i>
+                <h3>Sensori Avanzati</h3>
+                <p>DHT22 per temperatura/umidità, MQ-2 per gas, sensori di pressione.</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-wifi"></i>
+                <h3>Connettività</h3>
+                <p>Controllare i dati del tuo dispositivo dal nostro sito</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Meteo Home Security</h3>
+                <p>Finestre intelligenti per una casa più sicura.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Link Utili</h3>
+                <ul>
+                    <li><a href="prodotti.html">Prodotti</a></li>
+                    <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                    <li><a href="contatti.html">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Meteo Home Security - Progetto Scolastico</p>
+        </div>
+    </footer>
+
+    <script src="js/carrello.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if(hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Chiude il menu se clicchi fuori
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione - Meteo Home Security</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/LogoMHS4.png">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="images/LogoMHS4.png" alt="Logo MHS" class="logo-icon">
+            <span id="logo-text">Meteo Home Security</span>
+        </a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            
+        </div>
+        <ul class="nav-links">
+            <li><a href="prodotti.html">Prodotti</a></li>
+            <li><a href="chi-siamo.html">Chi Siamo</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="http:/localhost/cgi-bin/dati.exe">Dati</a></li>
+
+        </ul>
+        <div class="nav-right">
+            <a href="carrello.html" class="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <!-- REGISTRAZIONE -->
+     <section class="auth-section">
+        <div class="auth-container">
+            <div class="auth-header">
+                <i class="fas fa-user-plus"></i>
+                <h1>Crea un Account</h1>
+                <p>Registrati per accedere a tutti i vantaggi</p>
+            </div>
+
+            <form action="avviso.html" method="GET" class="auth-form" data-testid="register-form">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" required data-testid="register-nome">
+                    </div>
+                    <div class="input-group">
+                        <label for="cognome">Cognome *</label>
+                        <input type="text" id="cognome" name="cognome" required data-testid="register-cognome">
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required data-testid="register-email">
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" id="telefono" name="telefono" data-testid="register-telefono">
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" name="password" required minlength="8" data-testid="register-password">
+                        <small>Minimo 8 caratteri</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="conferma-password">Conferma Password *</label>
+                        <input type="password" id="conferma-password" name="conferma_password" required data-testid="register-confirm-password">
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="indirizzo">Indirizzo</label>
+                    <input type="text" id="indirizzo" name="indirizzo" data-testid="register-indirizzo">
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="citta">Città</label>
+                        <input type="text" id="citta" name="citta" data-testid="register-citta">
+                    </div>
+                    <div class="input-group">
+                        <label for="cap">CAP</label>
+                        <input type="text" id="cap" name="cap" pattern="[0-9]{5}" data-testid="register-cap">
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="newsletter">
+                        Voglio ricevere news e offerte speciali
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="privacy" required>
+                        Accetto la <a href="#">Privacy Policy</a> e i <a href="#">Termini di Servizio</a> *
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn" data-testid="register-submit">
+                    <i class="fas fa-user-plus"></i> Registrati
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Hai già un account? <a href="login.html">Accedi</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Meteo Home Security - Progetto Scolastico</p>
+        </div>
+    </footer>
+
+    <script src="js/carrello.js"></script>
+    <!--
+    <script>
+    document.querySelector('.auth-form').addEventListener('submit', function(e) {
+        // 1. Impedisce l'invio del form e il ricaricamento della pagina
+        e.preventDefault();
+
+        // 2. Controlla se le password coincidono (opzionale ma utile)
+        const password = document.getElementById('password').value;
+        const conferma = document.getElementById('conferma-password').value;
+
+        if (password !== conferma) {
+            alert("Errore: Le password non coincidono!");
+            return;
+        }
+
+        // 3. Mostra il messaggio di conferma
+        alert("Grazie per la registrazione! Ti informiamo che l'account non può essere creato realmente poiché questo è un progetto scolastico.");
+        
+        // 4. (Opzionale) Svuota i campi del form dopo il click
+        this.reset();
+        
+        // 5. (Opzionale) Reindirizza l'utente alla home dopo il messaggio
+        // window.location.href = "index.html";
+    });
+</script>-->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if(hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Chiude il menu se clicchi fuori
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

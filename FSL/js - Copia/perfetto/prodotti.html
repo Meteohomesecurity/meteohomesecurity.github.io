@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodotti - Meteo Home Security</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/LogoMHS4.png">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="images/LogoMHS4.png" alt="Logo MHS" class="logo-icon">
+            <span id="logo-text">Meteo Home Security</span>
+        </a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            
+        </div>
+        <ul class="nav-links">
+            <li><a href="prodotti.html" class="active">Prodotti</a></li>
+            <li><a href="chi-siamo.html">Chi Siamo</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="http:/localhost/cgi-bin/dati.exe">Dati</a></li>
+
+        </ul>
+
+        <div class="nav-right">
+            <div class="search-container">
+                <input type="checkbox" id="search-toggle" class="search-checkbox">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Cerca...">
+                    <label for="search-toggle" class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </label>
+                </div>
+            </div>
+            <a href="carrello.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+            <div class="login-dropdown">
+                <a href="#" class="login-btn"><i class="fas fa-user"></i> Account</a>
+                <div class="login-menu">
+                    <h3>Accedi al tuo account</h3>
+                    <form action="cgi-bin/login.cgi" method="POST">
+                        <div class="input-box"><i class="fas fa-envelope"></i><input type="email" name="email" placeholder="Email" required></div>
+                        <div class="input-box"><i class="fas fa-lock"></i><input type="password" name="password" placeholder="Password" required></div>
+                        <button type="submit" class="btn-login-submit">Accedi</button>
+                    </form>
+                    <div class="login-footer"><a href="#">Password dimenticata?</a><hr><p>Non hai un account? <a href="registrazione.html">Registrati</a></p></div>
+                </div>
+            </div>
+            <div class="language-dropdown">
+                <button class="language-btn"><img src="https://flagcdn.com/w20/it.png" alt="IT"> IT <span class="arrow"></span></button>
+                <div class="language-menu">
+                        <a href="prodotti.html"><img src="https://flagcdn.com/w20/it.png" alt="IT"> Italiano</a>
+                    <a href="prodottiIng.html"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER PAGINA -->
+    <section class="page-header">
+        <h1>I Nostri Prodotti</h1>
+        <p>Soluzioni intelligenti per ogni esigenza</p>
+    </section>
+
+    <!-- PRODOTTI -->
+    <section class="products-page">
+        <!-- GRIGLIA PRODOTTI -->
+        <div class="products-grid">
+            <!-- KIT -->
+            <div class="product-card" data-testid="product-kit-base">
+                <div class="product-image"><i class="fas fa-microchip"></i></div>
+                <h3>Sistema per Una finestra</h3>
+                <div class="product-details">
+                    <p class="price">€149.99</p>
+                    <ul class="specs">
+                        <li><i class="fas fa-check"></i> 1 Sensore temperatura</li>
+                        <li><i class="fas fa-check"></i> 1 Attuatore finestra</li>
+                        <li><i class="fas fa-check"></i> Centralina Arduino</li>
+                        <li><i class="fas fa-check"></i> App di controllo</li>
+                    </ul>
+                </div>
+                <button onclick="aggiungiCarrello(1, 'Kit Base MHS', 149.99)" data-testid="add-cart-kit-base">Aggiungi al carrello</button>
+            </div>
+<!--
+            <div class="product-card featured" data-testid="product-kit-pro">
+                <div class="badge">Più venduto</div>
+                <div class="product-image"><i class="fas fa-home"></i></div>
+                <h3>Kit Pro MHS</h3>
+                <div class="product-details">
+                    <p class="price">€299.99</p>
+                    <ul class="specs">
+                        <li><i class="fas fa-check"></i> 4 Sensori temperatura</li>
+                        <li><i class="fas fa-check"></i> 2 Sensori gas</li>
+                        <li><i class="fas fa-check"></i> 4 Attuatori finestra</li>
+                        <li><i class="fas fa-check"></i> Centralina Pro</li>
+                        <li><i class="fas fa-check"></i> Dashboard web</li>
+                    </ul>
+                </div>
+                <button onclick="aggiungiCarrello(2, 'Kit Pro MHS', 299.99)" data-testid="add-cart-kit-pro">Aggiungi al carrello</button>
+            </div>
+
+            <div class="product-card" data-testid="product-kit-enterprise">
+                <div class="product-image"><i class="fas fa-building"></i></div>
+                <h3>Kit Enterprise MHS</h3>
+                <div class="product-details">
+                    <p class="price">€599.99</p>
+                    <ul class="specs">
+                        <li><i class="fas fa-check"></i> Fino a 20 finestre</li>
+                        <li><i class="fas fa-check"></i> 10 Sensori temperatura</li>
+                        <li><i class="fas fa-check"></i> 5 Sensori gas</li>
+                        <li><i class="fas fa-check"></i> Dashboard centralizzata</li>
+                        <li><i class="fas fa-check"></i> Supporto prioritario</li>
+                    </ul>
+                </div>
+                <button onclick="aggiungiCarrello(3, 'Kit Enterprise MHS', 599.99)" data-testid="add-cart-kit-enterprise">Aggiungi al carrello</button>
+            </div>
+
+        
+            <div class="product-card" data-testid="product-sensor-temp">
+                <div class="product-image"><i class="fas fa-thermometer-half"></i></div>
+                <h3>Sensore Temperatura</h3>
+                <div class="product-details">
+                    <p class="price">€29.99</p>
+                    <ul class="specs">
+                        <li><i class="fas fa-check"></i> Precisione ±0.1°C</li>
+                        <li><i class="fas fa-check"></i> Range -40°C a 80°C</li>
+                        <li><i class="fas fa-check"></i> Wireless</li>
+                    </ul>
+                </div>
+                <button onclick="aggiungiCarrello(4, 'Sensore Temperatura', 29.99)" data-testid="add-cart-sensor-temp">Aggiungi al carrello</button>
+            </div>
+
+            <div class="product-card" data-testid="product-sensor-gas">
+                <div class="product-image"><i class="fas fa-wind"></i></div>
+                <h3>Sensore Gas</h3>
+                <div class="product-details">
+                    <p class="price">€49.99</p>
+                    <ul class="specs">
+                        <li><i class="fas fa-check"></i> Rileva CO, CO2, metano</li>
+                        <li><i class="fas fa-check"></i> Allarme sonoro</li>
+                        <li><i class="fas fa-check"></i> Notifiche push</li>
+                    </ul>
+                </div>
+                <button onclick="aggiungiCarrello(5, 'Sensore Gas', 49.99)" data-testid="add-cart-sensor-gas">Aggiungi al carrello</button>
+            </div>
+
+            <div class="product-card" data-testid="product-sensor-humidity">
+                <div class="product-image"><i class="fas fa-tint"></i></div>
+                <h3>Sensore Umidità</h3>
+                <div class="product-details">
+                    <p class="price">€24.99</p>
+                    <ul class="specs">
+                        <li><i class="fas fa-check"></i> Precisione ±2%</li>
+                        <li><i class="fas fa-check"></i> Range 0-100%</li>
+                        <li><i class="fas fa-check"></i> Batteria 2 anni</li>
+                    </ul>
+                </div>
+                <button onclick="aggiungiCarrello(6, 'Sensore Umidità', 24.99)" data-testid="add-cart-sensor-humidity">Aggiungi al carrello</button>
+            </div>
+
+        
+            <div class="product-card" data-testid="product-actuator">
+                <div class="product-image"><i class="fas fa-cog"></i></div>
+                <h3>Attuatore Finestra</h3>
+                <div class="product-details">
+                    <p class="price">€79.99</p>
+                    <ul class="specs">
+                        <li><i class="fas fa-check"></i> Motore silenzioso</li>
+                        <li><i class="fas fa-check"></i> Forza 50N</li>
+                        <li><i class="fas fa-check"></i> Installazione facile</li>
+                    </ul>
+                </div>
+                <button onclick="aggiungiCarrello(7, 'Attuatore Finestra', 79.99)" data-testid="add-cart-actuator">Aggiungi al carrello</button>
+            </div>
+
+            <div class="product-card" data-testid="product-hub">
+                <div class="product-image"><i class="fas fa-server"></i></div>
+                <h3>Hub Centrale</h3>
+                <div class="product-details">
+                    <p class="price">€99.99</p>
+                    <ul class="specs">
+                        <li><i class="fas fa-check"></i> WiFi + Bluetooth</li>
+                        <li><i class="fas fa-check"></i> Supporta 20 dispositivi</li>
+                        <li><i class="fas fa-check"></i> Backup cloud</li>
+                    </ul>
+                </div>
+                <button onclick="aggiungiCarrello(8, 'Hub Centrale', 99.99)" data-testid="add-cart-hub">Aggiungi al carrello</button>
+            </div>
+        </div>
+    -->
+    </section>
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Meteo Home Security</h3>
+                <p>Finestre intelligenti per una casa più sicura.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Link Utili</h3>
+                <ul>
+                    <li><a href="prodotti.html">Prodotti</a></li>
+                    <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                    <li><a href="contatti.html">Contatti</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contatti</h3>
+                <p><i class="fas fa-envelope"></i> <a href = "mailto:meteohome.security.fsl26@gmail.com">meteohome.security.fsl26@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Meteo Home Security - Progetto Scolastico</p>
+        </div>
+    </footer>
+
+    <script src="js/carrello.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if(hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Chiude il menu se clicchi fuori
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

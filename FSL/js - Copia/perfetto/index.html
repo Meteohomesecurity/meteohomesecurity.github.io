@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteo Home Security - Finestre Intelligenti</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/LogoMHS4.png">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="images/LogoMHS4.png" alt="Logo MHS" class="logo-icon">
+            <span id="logo-text">Meteo Home Security</span>
+        </a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="prodotti.html">Prodotti</a></li>
+            <li><a href="chi-siamo.html">Chi Siamo</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="http:/localhost/cgi-bin/dati.exe">Dati</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <!-- Barra di ricerca -->
+            <div class="search-container">
+                <input type="checkbox" id="search-toggle" class="search-checkbox">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Cerca...">
+                    <label for="search-toggle" class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Carrello -->
+            <a href="carrello.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+
+            <!-- Login -->
+            <div class="login-dropdown">
+                <a href="#" class="login-btn">
+                    <i class="fas fa-user"></i> Account
+                </a>
+                <div class="login-menu">
+                    <h3>Accedi al tuo account</h3>
+                    <form action="avviso.html" method="GET">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn-login-submit">Accedi</button>
+                    </form>
+                    <div class="login-footer">
+                        <a href="#">Password dimenticata?</a>
+                        <hr>
+                        <p>Non hai un account? <a href="registrazione.html">Registrati</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lingua -->
+            <div class="language-dropdown">
+                <button class="language-btn">
+                    <img src="https://flagcdn.com/w20/it.png" alt="IT">
+                    IT <span class="arrow"></span>
+                </button>
+                <div class="language-menu">
+                    <a href="index.html"><img src="https://flagcdn.com/w20/it.png" alt="IT"> Italiano</a>
+                    <a href="indexIng.html"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION CON SLIDER -->
+    <section class="hero-section">
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <img src="images/arduino_one_720.jpg" alt="Slide 1">
+                <img src="images/Licata.jpeg" alt="Slide 2">
+                <img src="images/FotoDaDietro (1).png" alt="Slide 3">                
+                <img src="images/arduino_one_720.jpg" alt="Slide 1">
+            </div>
+        </div>
+    
+        <div class="hero-content">
+            <h1>Meteo-Home Security</h1>
+            <p><strong>"Finestre intelligenti: Il clima perfetto senza muovere un dito."</strong></p>
+            <a href="prodotti.html" class="btn-main">Scopri i nostri prodotti</a>
+        </div>
+    </section>
+
+    <!-- CARATTERISTICHE -->
+    <section class="features-section">
+        <h2>Perché scegliere MHS?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-temperature-high"></i>
+                <h3>Rilevamento Temperatura</h3>
+                <p>Sensori di precisione per monitorare la temperatura ambiente in tempo reale.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-wind"></i>
+                <h3>Rilevamento Gas</h3>
+                <p>Protezione automatica: apertura finestre in caso di rilevamento gas pericolosi.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-cloud-sun"></i>
+                <h3>Controllo Meteo</h3>
+                <p>Gestione intelligente basata sulle condizioni meteorologiche esterne.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Controllo Remoto</h3>
+                <p>Gestisci le tue finestre da qualsiasi luogo tramite app.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODOTTI IN EVIDENZA -->
+    <section class="products-preview">
+        <h2>I Nostri Prodotti</h2>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="product-image">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3>Kit Base MHS</h3>
+                <p class="price">€149.99</p>
+                <p>Sistema base con sensore temperatura e controllo finestra singola.</p>
+                <button onclick="aggiungiCarrello(1, 'Kit Base MHS', 149.99)">Aggiungi al carrello</button>
+            </div>
+            <div class="product-card featured">
+                <div class="badge">Più venduto</div>
+                <div class="product-image">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Kit Pro MHS</h3>
+                <p class="price">€299.99</p>
+                <p>Sistema completo con sensori gas, temperatura, umidità e controllo 4 finestre.</p>
+                <button onclick="aggiungiCarrello(2, 'Kit Pro MHS', 299.99)">Aggiungi al carrello</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Kit Enterprise MHS</h3>
+                <p class="price">€599.99</p>
+                <p>Soluzione completa per edifici: fino a 20 finestre, dashboard centralizzata.</p>
+                <button onclick="aggiungiCarrello(3, 'Kit Enterprise MHS', 599.99)">Aggiungi al carrello</button>
+            </div>
+        </div>
+        <a href="prodotti.html" class="btn-main btn-center">Vedi tutti i prodotti</a>
+    </section>
+
+    <!-- COME FUNZIONA -->
+    <section class="how-it-works">
+        <h2>Come Funziona</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Installazione</h3>
+                <p>Installa i sensori sulle tue finestre in pochi minuti.</p>
+            </div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Configurazione</h3>
+                <p>Collega il sistema alla tua rete WiFi e configura le soglie.</p>
+            </div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Automazione</h3>
+                <p>Il sistema gestisce automaticamente le finestre per te.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Meteo Home Security</h3>
+                <p>Finestre intelligenti per una casa più sicura e confortevole.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/meteo.home.security?igsh=MTJrdjRvNnZlM2libw=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Link Utili</h3>
+                <ul>
+                    <li><a href="prodotti.html">Prodotti</a></li>
+                    <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                    <li><a href="contatti.html">Contatti</a></li>
+                    <li><a href="http:/localhost/cgi-bin/dati.exe">Dati</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contatti</h3>
+                <p><i class="fas fa-envelope"></i> meteohome.security.fsl26@gmail.co</p>
+                <p><i class="fas fa-phone"></i> +39 123 456 7890</p>
+                <p><i class="fas fa-map"></i><a href="https://maps.app.goo.gl/LW8rzFbDoWeKAXQj8"> Via Peruzzi 9, Carpi Italia</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Meteo Home Security - Progetto Scolastico</p>
+        </div>
+    </footer>
+
+    <script src="js/carrello.js"></script>
+<!--
+    <script>
+    // Gestione LOGIN (Navbar)
+    const loginForm = document.querySelector('.login-menu form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Grazie! L'accesso è disabilitato poiché questo è un progetto scolastico.");
+            this.reset();
+        });
+    }
+
+    
+    // Gestione CHECKOUT (Modulo ordine)
+    const checkoutForm = document.getElementById('checkout-form');
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Ordine ricevuto! Tuttavia, non verrà elaborato alcun pagamento poiché si tratta di un progetto scolastico.");
+            
+            // Svuota il carrello (se la funzione esiste nel tuo carrello.js)
+            if (typeof svuotaCarrello === "function") {
+                svuotaCarrello();
+            }
+            
+            window.location.href = "index.html";
+        });
+    }
+</script>-->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if(hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Chiude il menu se clicchi fuori
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

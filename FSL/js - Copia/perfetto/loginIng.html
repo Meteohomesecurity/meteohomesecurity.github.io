@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Meteo Home Security</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/LogoMHS4.png">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="indexIng.html" class="logo-container">
+            <img src="images/LogoMHS4.png" alt="Logo MHS" class="logo-icon">
+            <span id="logo-text">Meteo Home Security</span>
+        </a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            
+        </div>
+        <ul class="nav-links">
+            <li><a href="prodottiIng.html">Our Products</a></li>
+            <li><a href="chi-siamoIng.html">About us</a></li>
+            <li><a href="contattiIng.html">Contact us</a></li>
+            <li><a href="http:/localhost/cgi-bin/datiIng.exe">Data</a></li>
+
+        </ul>
+        <div class="nav-right">
+            <a href="carrelloIng.html" class="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <!-- LOGIN -->
+    <section class="auth-section">
+        <div class="auth-container login-container">
+            <div class="auth-header">
+                <i class="fas fa-sign-in-alt"></i>
+                <h1>Log in</h1>
+                <p>Welcome back! Log in with your account</p>
+            </div>
+
+            <form action="cgi-bin/login.cgi" method="POST" class="auth-form" data-testid="login-form">
+                <div class="input-group full-width">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required data-testid="login-email">
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required data-testid="login-password">
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" name="ricordami">
+                        Remember me 
+                    </label>
+                    <a href="#" class="forgot-password">Forgotten password?</a>
+                </div>
+
+                <button type="submit" class="submit-btn" data-testid="login-submit">
+                    <i class="fas fa-sign-in-alt"></i> Log In
+                </button>
+            </form>
+
+            <div class="auth-divider">
+                <span>Or</span>
+            </div>
+
+            <div class="social-login">
+                <button class="social-btn google">
+                    <i class="fab fa-google"></i>Log in with google
+                </button>
+                <button class="social-btn facebook">
+                    <i class="fab fa-facebook-f"></i> Log in with Facebook
+                </button>
+            </div>
+
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="registrazioneIng.html">Sign up</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Meteo Home Security - Scolar project</p>
+        </div>
+    </footer>
+
+    <script src="js/carrello.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if(hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Chiude il menu se clicchi fuori
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
