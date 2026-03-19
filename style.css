@@ -16,37 +16,6 @@
     --success: #28a745;
     --warning: #ffc107;
 }
-/**/
-.btn-link {
-    /* Layout */
-    display: block;
-    width: 100%;
-    padding: 15px;
-    box-sizing: border-box; /* Importante: include il padding nella larghezza 100% */
-    
-    /* Stile Estetico */
-    background: var(--highlight);
-    color: white !important; /* Forza il colore bianco se hai altri stili per i link */
-    text-decoration: none;   /* Toglie la sottolineatura blu classica */
-    text-align: center;
-    border-radius: 30px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    
-    /* Animazioni */
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Effetto Hover */
-.btn-link:hover {
-    background: #d63050;
-    transform: scale(1.02);
-    color: white;
-    text-decoration: none;
-} 
-/**/
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -562,10 +531,38 @@ ul {
     text-align: center;
     transition: all 0.3s ease;
     position: relative;
-    
-
-
 }
+/**/
+.btn-link {
+    /* Layout */
+    display: block;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box; /* Importante: include il padding nella larghezza 100% */
+    
+    /* Stile Estetico */
+    background: var(--highlight);
+    color: white !important; /* Forza il colore bianco se hai altri stili per i link */
+    text-decoration: none;   /* Toglie la sottolineatura blu classica */
+    text-align: center;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Animazioni */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Effetto Hover */
+.btn-link:hover {
+    background: #d63050;
+    transform: scale(1.02);
+    color: white;
+    text-decoration: none;
+} 
+/**/
 
 .product-card:hover {
     transform: translateY(-10px);
