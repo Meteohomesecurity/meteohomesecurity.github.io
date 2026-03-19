@@ -221,6 +221,7 @@ function svuotaCarrello() {
 document.addEventListener('DOMContentLoaded', function() {
     aggiornaContatore();
 });*/
+/*
 // Funzioni base di lettura/scrittura
 const getCarrello = () => JSON.parse(localStorage.getItem('mhs_carrello')) || { quantita: 0 };
 const salvaCarrello = (dati) => {
@@ -257,4 +258,4 @@ function renderCarrello() {
 }
 
 // Inizializza al caricamento
-document.addEventListener('DOMContentLoaded', renderCarrello);
+document.addEventListener('DOMContentLoaded', renderCarrello);*/
