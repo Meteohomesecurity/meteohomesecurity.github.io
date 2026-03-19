@@ -1,3 +1,4 @@
+<!--
 // Inizializza il carrello dal localStorage o crea uno nuovo
 function getCarrello() {
     const carrello = localStorage.getItem('mhs_carrello');
@@ -219,4 +220,41 @@ function svuotaCarrello() {
 // Inizializza al caricamento
 document.addEventListener('DOMContentLoaded', function() {
     aggiornaContatore();
-});
+});-->
+// Funzioni base di lettura/scrittura
+const getCarrello = () => JSON.parse(localStorage.getItem('mhs_carrello')) || { quantita: 0 };
+const salvaCarrello = (dati) => {
+    localStorage.setItem('mhs_carrello', JSON.stringify(dati));
+    document.querySelectorAll('#cart-count').forEach(c => c.textContent = dati.quantita);
+};
+
+// Aggiungi o rimuovi (delta può essere 1 o -1)
+function aggiornaProdotto(delta) {
+    let carrello = getCarrello();
+    carrello.quantita = Math.max(0, carrello.quantita + delta);
+    
+    salvaCarrello(carrello);
+    renderCarrello(); 
+}
+
+// Mostra i dati nella pagina
+function renderCarrello() {
+    const carrello = getCarrello();
+    const prezzoUnitario = 49.99; // Imposta il tuo prezzo qui
+    const totale = carrello.quantita * prezzoUnitario;
+
+    // Aggiorna i testi se esistono nel DOM
+    if (document.getElementById('cart-qty')) {
+        document.getElementById('cart-qty').textContent = carrello.quantita;
+        document.getElementById('totale').textContent = `€${totale.toFixed(2)}`;
+    }
+    
+    // Mostra/Nascondi messaggio carrello vuoto
+    const display = carrello.quantita > 0 ? 'block' : 'none';
+    if (document.getElementById('cart-summary')) {
+        document.getElementById('cart-summary').style.display = display;
+    }
+}
+
+// Inizializza al caricamento
+document.addEventListener('DOMContentLoaded', renderCarrello);
