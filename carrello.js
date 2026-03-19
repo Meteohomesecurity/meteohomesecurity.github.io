@@ -1,4 +1,4 @@
-<!--
+/*
 // Inizializza il carrello dal localStorage o crea uno nuovo
 function getCarrello() {
     const carrello = localStorage.getItem('mhs_carrello');
@@ -220,7 +220,7 @@ function svuotaCarrello() {
 // Inizializza al caricamento
 document.addEventListener('DOMContentLoaded', function() {
     aggiornaContatore();
-});-->
+});*/
 // Funzioni base di lettura/scrittura
 const getCarrello = () => JSON.parse(localStorage.getItem('mhs_carrello')) || { quantita: 0 };
 const salvaCarrello = (dati) => {
