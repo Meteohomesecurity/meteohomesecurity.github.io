@@ -237,7 +237,7 @@ function aggiornaProdotto(delta) {
     salvaCarrello(carrello);
     renderCarrello(); 
 }
-
+*/
 // Mostra i dati nella pagina
 function renderCarrello() {
     const carrello = getCarrello();
@@ -258,4 +258,4 @@ function renderCarrello() {
 }
 
 // Inizializza al caricamento
-document.addEventListener('DOMContentLoaded', renderCarrello);*/
+document.addEventListener('DOMContentLoaded', renderCarrello);
