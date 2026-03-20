@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - MHS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="LogoMHS4.png">
+    <style>
+        :root {
+            --bg-color: #0d0f1a;
+            --card-bg: #1e2136;
+            --accent-blue: #4da3f1;
+            --text-white: #ffffff;
+            --text-gray: #b0b3c8;
+            --border-color: #313652;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Main container to center the card below the nav */
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 20px 40px 20px; /* The first value (120px) moves the product down */
+        }
+
+        .product-container {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        /* --- Slider --- */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: #16192c;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+        }
+        .arrow:hover { background: var(--accent-blue); }
+        .prev { left: 15px; }
+        .next { right: 15px; }
+
+        .dots-container {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .dot { width: 10px; height: 10px; background: rgba(255,255,255,0.3); border-radius: 50%; cursor: pointer; }
+        .dot.active { background: var(--accent-blue); width: 25px; border-radius: 10px; transition: 0.3s; }
+
+        /* --- Details --- */
+        .product-content { padding: 40px; flex: 1; display: flex; flex-direction: column; }
+        h1 { margin: 0; font-size: 2rem; }
+        .price { color: var(--accent-blue); font-size: 1.8rem; font-weight: 700; margin: 15px 0; }
+        
+        .specs-list { list-style: none; padding: 0; margin: 20px 0; flex-grow: 1; }
+        .specs-list li { 
+            padding: 12px 0; 
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+        .specs-list li b { color: var(--text-white); margin-right: 5px; }
+
+        .add-to-cart-btn {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 20px;
+            border-radius: 15px;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .add-to-cart-btn:hover { background: #3586d1; transform: scale(1.02); }
+
+        /* Desktop Layout */
+        @media (min-width: 768px) {
+            .product-container { flex-direction: row; height: 600px; }
+            .slider-container { width: 55%; height: 100%; }
+            .product-content { width: 45%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="indexIng.html" class="logo-container">
+            <img src="LogoMHS4.png" alt="MHS Logo" class="logo-icon">
+            <span id="logo-text">Meteo Home Security</span>
+        </a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="prodottiIng.html">Products</a></li>
+            <li><a href="chi-siamoIng.html">About Us</a></li>
+            <li><a href="contattiIng.html">Contact</a></li>
+            <li><a href="http:/localhost/cgi-bin/data.exe">Data</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <a href="cart.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+
+            <div class="login-dropdown">
+                <a href="#" class="login-btn">
+                    <i class="fas fa-user"></i> Account
+                </a>
+                <div class="login-menu">
+                    <h3>Access your account</h3>
+                    <form action="avvisoIng.html" method="GET">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn-login-submit">Login</button>
+                    </form>
+                    <div class="login-footer">
+                        <a href="#">Forgot password?</a>
+                        <hr>
+                        <p>Don't have an account? <a href="registrazioneIng.html">Register</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="language-dropdown">
+                <button class="language-btn">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="EN">
+                    EN <span class="lang-arrow"></span>
+                </button>
+                <div class="language-menu">
+                    <a href="index.html"><img src="https://flagcdn.com/w20/it.png" alt="IT"> Italiano</a>
+                    <a href="indexIng.html"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="product-container">
+            <div class="slider-container">
+                <button class="arrow prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="arrow next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+                
+                <div class="slides" id="mainSlides">
+                    <div class="slide"><img src="Totale.jpeg" alt="Full System"></div>
+                    <div class="slide"><img src="FinestradaDentro.jpeg" alt="Inside View"></div>
+                    <div class="slide"><img src="FinestraDaFuori.jpeg" alt="Outside View"></div>
+                </div>
+
+                <div class="dots-container" id="dots">
+                    <div class="dot active" onclick="currentSlide(0)"></div>
+                    <div class="dot" onclick="currentSlide(1)"></div>
+                    <div class="dot" onclick="currentSlide(2)"></div>
+                </div>
+            </div>
+
+            <div class="product-content">
+                <h1>Single Window System</h1>
+                <div class="price">€499.99</div>
+                
+                <ul class="specs-list">
+                    <li><b>Automation:</b> AI-based smart opening.</li>
+                    <li><b>Sensors:</b> Temperature, Humidity, and Rain.</li>
+                    <li><b>Materials:</b> Reinforced aluminum and Arduino components.</li>
+                    <li><b>Warranty:</b> 2 years of technical support included.</li>
+                </ul>
+
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.getElementById('mainSlides');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = dots.length;
+
+        function updateSlider() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function changeSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex >= totalSlides) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = totalSlides - 1;
+            updateSlider();
+        }
+
+        function currentSlide(index) {
+            currentIndex = index;
+            updateSlider();
+        }
+    </script>
+</body>
+</html>
