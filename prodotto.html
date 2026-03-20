@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dettaglio Prodotto</title>
+    <title>Dettaglio Prodotto - MHS</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="LogoMHS4.png">
     <style>
         :root {
-            --bg-color: #1a1c2c;
-            --card-bg: #242840;
+            --bg-color: #0d0f1a; /* Sfondo più scuro come da tua navbar */
+            --card-bg: #1e2136;
             --accent-blue: #4da3f1;
             --text-white: #ffffff;
             --text-gray: #b0b3c8;
@@ -21,17 +21,25 @@
             font-family: 'Segoe UI', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-white);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Container principale per centrare la scheda sotto la nav */
+        .main-content {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
+            padding: 40px 20px;
         }
 
         .product-container {
             background-color: var(--card-bg);
-            width: 90%;
-            max-width: 900px;
+            width: 100%;
+            max-width: 1000px;
             border-radius: 24px;
             overflow: hidden;
             display: flex;
@@ -39,12 +47,12 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        /* --- Slider con Frecce --- */
+        /* --- Slider --- */
         .slider-container {
             position: relative;
             width: 100%;
             height: 400px;
-            background: #1e2136;
+            background: #16192c;
             overflow: hidden;
         }
 
@@ -58,37 +66,32 @@
         .slide {
             min-width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 6rem;
         }
 
-        /* Frecce di Navigazione */
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Fa sì che le foto riempiano lo spazio senza deformarsi */
+        }
+
         .arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
             color: white;
             border: none;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
             z-index: 10;
-            transition: background 0.3s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            transition: 0.3s;
         }
-
         .arrow:hover { background: var(--accent-blue); }
         .prev { left: 15px; }
         .next { right: 15px; }
 
-        /* Puntini in basso */
         .dots-container {
             position: absolute;
             bottom: 15px;
@@ -97,30 +100,21 @@
             display: flex;
             gap: 8px;
         }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
+        .dot { width: 10px; height: 10px; background: rgba(255,255,255,0.3); border-radius: 50%; cursor: pointer; }
         .dot.active { background: var(--accent-blue); width: 25px; border-radius: 10px; transition: 0.3s; }
 
-        /* --- Testi e Dettagli --- */
-        .product-content { padding: 40px; flex: 1; }
+        /* --- Dettagli --- */
+        .product-content { padding: 40px; flex: 1; display: flex; flex-direction: column; }
+        h1 { margin: 0; font-size: 2rem; }
+        .price { color: var(--accent-blue); font-size: 1.8rem; font-weight: 700; margin: 15px 0; }
         
-        h1 { margin: 0; font-size: 1.8rem; }
-        .price { color: var(--accent-blue); font-size: 1.6rem; font-weight: 700; margin: 10px 0; }
-        
-        .specs-list { list-style: none; padding: 0; margin: 25px 0; }
+        .specs-list { list-style: none; padding: 0; margin: 20px 0; flex-grow: 1; }
         .specs-list li { 
-            padding: 10px 0; 
+            padding: 12px 0; 
             border-bottom: 1px solid var(--border-color);
             color: var(--text-gray);
         }
-        .specs-list li b { color: var(--text-white); }
+        .specs-list li b { color: var(--text-white); margin-right: 5px; }
 
         .add-to-cart-btn {
             background: var(--accent-blue);
@@ -130,100 +124,99 @@
             border-radius: 15px;
             width: 100%;
             font-weight: bold;
+            font-size: 1.1rem;
             text-transform: uppercase;
             cursor: pointer;
-            letter-spacing: 1px;
+            transition: 0.3s;
+            margin-top: 20px;
         }
+        .add-to-cart-btn:hover { background: #3586d1; transform: scale(1.02); }
 
+        /* Desktop Layout (Foto a sinistra, testo a destra) */
         @media (min-width: 768px) {
-            .product-container { flex-direction: row; }
-            .slider-container { width: 50%; height: 500px; }
-            .product-content { width: 50%; }
+            .product-container { flex-direction: row; height: 600px; }
+            .slider-container { width: 55%; height: 100%; }
+            .product-content { width: 45%; }
         }
     </style>
 </head>
 <body>
-    <!-- NAVBAR -->
+
     <nav class="navbar">
         <a href="index.html" class="logo-container">
             <img src="LogoMHS4.png" alt="Logo MHS" class="logo-icon">
             <span id="logo-text">Meteo Home Security</span>
         </a>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-            
-        </div>
         <ul class="nav-links">
             <li><a href="prodotti.html">Prodotti</a></li>
             <li><a href="chi-siamo.html">Chi Siamo</a></li>
-            <li><a href="contatti.html" class="active">Contatti</a></li>
-            <li><a href="http:/localhost/cgi-bin/dati.exe">Dati</a></li>
-
+            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="http://localhost/cgi-bin/dati.exe">Dati</a></li>
         </ul>
-        <div class="nav-right">
-<body>
+    </nav>
 
-<div class="product-container">
-    <div class="slider-container">
-        <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
-        
-        <div class="slides" id="mainSlides">
-            <div class="slide" style="background: #2a2e4a;"><img src = "Totale.jpeg"></div>
-            <div class="slide" style="background: #313652;"><img src = "FinestradaDentro.jpeg>"</div>
-            <div class="slide" style="background: #1e2136;"><img src = "FotoDaFuori.jpeg"></div>
+    <main class="main-content">
+        <div class="product-container">
+            <div class="slider-container">
+                <button class="arrow prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="arrow next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+                
+                <div class="slides" id="mainSlides">
+                    <div class="slide"><img src="Totale.jpeg" alt="Sistema Totale"></div>
+                    <div class="slide"><img src="FinestradaDentro.jpeg" alt="Vista Interna"></div>
+                    <div class="slide"><img src="FotoDaFuori.jpeg" alt="Vista Esterna"></div>
+                </div>
+
+                <div class="dots-container" id="dots">
+                    <div class="dot active" onclick="currentSlide(0)"></div>
+                    <div class="dot" onclick="currentSlide(1)"></div>
+                    <div class="dot" onclick="currentSlide(2)"></div>
+                </div>
+            </div>
+
+            <div class="product-content">
+                <h1>Sistema per Una Finestra</h1>
+                <div class="price">€499.99</div>
+                
+                <ul class="specs-list">
+                    <li><b>Automazione:</b> Apertura intelligente basata su AI.</li>
+                    <li><b>Sensori:</b> Temperatura, Umidità e Pioggia.</li>
+                    <li><b>Materiali:</b> Alluminio rinforzato e componenti Arduino.</li>
+                    <li><b>Garanzia:</b> 2 anni di supporto tecnico incluso.</li>
+                </ul>
+
+                <button class="add-to-cart-btn">Aggiungi al Carrello</button>
+            </div>
         </div>
+    </main>
 
-        <div class="dots-container" id="dots">
-            <div class="dot active" onclick="currentSlide(0)"></div>
-            <div class="dot" onclick="currentSlide(1)"></div>
-            <div class="dot" onclick="currentSlide(2)"></div>
-        </div>
-    </div>
+    <script>
+        let currentIndex = 0;
+        const slides = document.getElementById('mainSlides');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = dots.length;
 
-    <div class="product-content">
-        <h1>Sistema per Una Finestra</h1>
-        <div class="price">€499.99</div>
-        
-        <ul class="specs-list">
-            <li><b>Automazione:</b> Apertura intelligente basata su AI.</li>
-            <li><b>Sensori:</b> Temperatura, Umidità e Pioggia.</li>
-            <li><b>Materiali:</b> Alluminio rinforzato e componenti Arduino.</li>
-            <li><b>Garanzia:</b> 2 anni di supporto tecnico incluso.</li>
-        </ul>
+        function updateSlider() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
 
-        <button class="add-to-cart-btn">Aggiungi al Carrello</button>
-    </div>
-</div>
+        function changeSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex >= totalSlides) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = totalSlides - 1;
+            updateSlider();
+        }
 
-<script>
-    let currentIndex = 0;
-    const slides = document.getElementById('mainSlides');
-    const dots = document.querySelectorAll('.dot');
-    const totalSlides = dots.length;
+        function currentSlide(index) {
+            currentIndex = index;
+            updateSlider();
+        }
 
-    function updateSlider() {
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-        // Aggiorna i puntini
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
-        });
-    }
-
-    function changeSlide(direction) {
-        currentIndex += direction;
-        if (currentIndex >= totalSlides) currentIndex = 0;
-        if (currentIndex < 0) currentIndex = totalSlides - 1;
-        updateSlider();
-    }
-
-    function currentSlide(index) {
-        currentIndex = index;
-        updateSlider();
-    }
-</script>
-
+        // Auto-slide ogni 5 secondi (opzionale)
+        setInterval(() => changeSlide(1), 5000);
+    </script>
 </body>
 </html>
