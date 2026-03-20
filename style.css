@@ -2045,3 +2045,16 @@ ul {
     .auth-container { padding: 30px 20px; }
     .nav-right { gap: 10px; }
 }
+/* Forza le frecce ad essere cliccabili e in primo piano */
+.arrow {
+    z-index: 100 !important; /* Le mette sopra le immagini */
+    cursor: pointer !important;
+    pointer-events: auto !important; /* Assicura che ricevano il click */
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-container {
+    z-index: 1; /* Crea un contesto di posizionamento pulito */
+}
