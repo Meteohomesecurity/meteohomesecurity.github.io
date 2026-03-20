@@ -2058,3 +2058,14 @@ ul {
 .slider-container {
     z-index: 1; /* Crea un contesto di posizionamento pulito */
 }
+.language-btn .arrow {
+    all: unset; /* Rimuove lo stile "pallino" ereditato dallo slider */
+    display: inline-block;
+    width: 0; 
+    height: 0; 
+    margin-left: 5px;
+    vertical-align: middle;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid white; /* Crea una piccola freccetta a punta verso il basso */
+}
