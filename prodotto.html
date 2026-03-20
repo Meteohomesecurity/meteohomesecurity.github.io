@@ -147,12 +147,75 @@
             <img src="LogoMHS4.png" alt="Logo MHS" class="logo-icon">
             <span id="logo-text">Meteo Home Security</span>
         </a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <ul class="nav-links">
             <li><a href="prodotti.html">Prodotti</a></li>
             <li><a href="chi-siamo.html">Chi Siamo</a></li>
             <li><a href="contatti.html">Contatti</a></li>
-            <li><a href="http://localhost/cgi-bin/dati.exe">Dati</a></li>
+            <li><a href="http:/localhost/cgi-bin/dati.exe">Dati</a></li>
         </ul>
+
+        <div class="nav-right">
+            <!-- Barra di ricerca 
+            <div class="search-container">
+                <input type="checkbox" id="search-toggle" class="search-checkbox">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Cerca...">
+                    <label for="search-toggle" class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </label>
+                </div>
+            </div>-->
+
+            <!-- Carrello -->
+            <a href="carrello.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+
+            <!-- Login -->
+            <div class="login-dropdown">
+                <a href="#" class="login-btn">
+                    <i class="fas fa-user"></i> Account
+                </a>
+                <div class="login-menu">
+                    <h3>Accedi al tuo account</h3>
+                    <form action="avviso.html" method="GET">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn-login-submit">Accedi</button>
+                    </form>
+                    <div class="login-footer">
+                        <a href="#">Password dimenticata?</a>
+                        <hr>
+                        <p>Non hai un account? <a href="registrazione.html">Registrati</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lingua -->
+            <div class="language-dropdown">
+                <button class="language-btn">
+                    <img src="https://flagcdn.com/w20/it.png" alt="IT">
+                    IT <span class="arrow"></span>
+                </button>
+                <div class="language-menu">
+                    <a href="index.html"><img src="https://flagcdn.com/w20/it.png" alt="IT"> Italiano</a>
+                    <a href="indexIng.html"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <main class="main-content">
