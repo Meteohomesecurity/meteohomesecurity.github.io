@@ -1548,6 +1548,20 @@ ul {
     color: var(--highlight);
     font-weight: 600;
 }
+.social-login {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;            /* Spazio tra i due pulsanti */
+    margin-bottom: 20px;  /* Spazio prima della scritta Registrati */
+}
+
+/* Centra il testo del footer e staccalo dai pulsanti */
+.auth-footer {
+    text-align: center;
+    width: 100%;          /* Occupa tutta la larghezza per stare sotto */
+    margin-top: 20px;
+    display: block;       /* Assicura che vada a capo */
+}
 
 /* ==========================================
    FOOTER
