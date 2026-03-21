@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHS - Sensor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="LogoMHS4.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	    
+    <style>
+        /* PROFESSIONAL DARK THEME */
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            background: #0f0f1b; 
+            color: white; 
+            margin: 0; 
+            text-align: center; 
+        }
+
+        /* HEADER */
+        h1 { margin-top: 40px; font-size: 2.5rem; letter-spacing: 1px; }
+        .sub-header { color: #888; margin-bottom: 40px; }
+
+        /* CARD GRID */
+        .container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 25px; 
+            padding: 20px; 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .card { 
+            background: #1a1a2e; 
+            padding: 25px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            min-width: 240px; 
+            border: 1px solid #2d2d44; 
+            cursor: pointer; 
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover { 
+            border-color: #007bff; 
+            transform: translateY(-8px);
+            background: #23233d;
+        }
+
+        /* CARD ICONS */
+        .icon-circle { 
+            width: 55px; height: 55px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            margin: 0 auto 15px; background: rgba(255,255,255,0.03);
+            font-size: 1.8rem;
+        }
+
+        .card h2 { margin: 0; font-size: 1rem; color: #999; text-transform: uppercase; }
+        .valore { font-size: 2.8rem; font-weight: bold; margin: 15px 0; }
+        
+        /* SPECIFIC COLORS */
+        .c-temp { color: #ff4757; }
+        .c-umi { color: #2e86de; }
+        .c-gas { color: #ffa502; }
+        .c-aria { color: #2ed573; }
+
+        .footer-info { font-size: 0.8rem; color: #555; margin-top: 10px; }
+
+        /* MODAL POPUP */
+        .modal { 
+            display: none; position: fixed; z-index: 2000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.9); backdrop-filter: blur(5px);
+        }
+        .modal-content { 
+            background: #16213e; margin: 5% auto; padding: 30px; 
+            border-radius: 25px; width: 85%; max-width: 850px; 
+            position: relative; border: 1px solid #333;
+        }
+        .close-btn { 
+            color: #fff; position: absolute; right: 25px; top: 15px; 
+            font-size: 35px; cursor: pointer; 
+        }
+
+        #aggiornamento-testo { margin-top: 40px; color: #444; font-style: italic; }
+    </style>
+</head>
+<body>
+
+ 	<nav class="navbar">
+        <a href="indexIng.html" class="logo-container">
+            <img src="LogoMHS4.png" alt="MHS Logo" class="logo-icon">
+            <span id="logo-text">Meteo Home Security</span>
+        </a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="prodottiIng.html">Products</a></li>
+            <li><a href="chi-siamoIng.html">About Us</a></li>
+            <li><a href="contattiIng.html">Contact</a></li>
+            <li><a href="http:/localhost/cgi-bin/dati.exe">Data</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <a href="carrello.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+
+            <div class="login-dropdown">
+                <a href="#" class="login-btn">
+                    <i class="fas fa-user"></i> Account
+                </a>
+                <div class="login-menu">
+                    <h3>Login to your account</h3>
+                    <form action="avviso.html" method="GET">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn-login-submit">Login</button>
+                    </form>
+                    <div class="login-footer">
+                        <a href="#">Forgot password?</a>
+                        <hr>
+                        <p>Don't have an account? <a href="registrazione.html">Sign up</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="language-dropdown">
+                <button class="language-btn">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="EN">
+                    EN 
+                </button>
+                <div class="language-menu">
+                    <a href="dati.html"><img src="https://flagcdn.com/w20/it.png" alt="IT"> Italiano</a>
+                    <a href="datiing.html"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <h1>Sensor Dashboard</h1>
+    <p class="sub-header">Real-time environmental monitoring</p>
+    
+    <div class="container">
+        <div class="card" onclick="mostraGrafico('temp', 'Temperature', '#ff4757', 1)">
+            <div class="icon-circle">🌡️</div>
+            <h2>Temperature</h2>
+            <p class="valore c-temp" id="val-temp">--°C</p>
+            <div class="footer-info">DHT22 Sensor</div>
+        </div>
+
+        <div class="card" onclick="mostraGrafico('umi', 'Humidity', '#2e86de', 2)">
+            <div class="icon-circle">💧</div>
+            <h2>Humidity</h2>
+            <p class="valore c-umi" id="val-umi">--%</p>
+            <div class="footer-info">Optimal level: 40-60%</div>
+        </div>
+
+        <div class="card" onclick="mostraGrafico('gas', 'Gas Detection', '#ffa502', 3)">
+            <div class="icon-circle">🔥</div>
+            <h2>Gas Detection</h2>
+            <p class="valore c-gas" id="val-gas">-- ppm</p>
+            <div class="footer-info">MQ2 Sensor</div>
+        </div>
+
+        <div class="card" onclick="mostraGrafico('co2', 'Air Quality (CO2)', '#2ed573', 4)">
+            <div class="icon-circle">☁️</div>
+            <h2>Air Quality</h2>
+            <p class="valore c-aria" id="val-co2">-- ppm</p>
+            <div class="footer-info">CO2 Measurement</div>
+        </div>
+    </div>
+
+    <p id="aggiornamento-testo">Waiting for connection...</p>
+
+    <div id="modalGrafico" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="chiudiModal()">&times;</span>
+            <h2 id="titoloGrafico" style="margin-bottom:25px;">Historical Trend</h2>
+            <div style="height: 450px;"><canvas id="chartCanvas"></canvas></div>
+        </div>
+    </div>
+
+    <script>
+        let datiStorici = [];
+        let chartIstanza = null;
+
+        function chiudiModal() { document.getElementById('modalGrafico').style.display = 'none'; }
+
+        async function mostraGrafico(id, etichetta, colore, colIndex) {
+            const labels = [];
+            const valori = [];
+            
+            // Get last 25 entries
+            const ultimi = datiStorici.slice(-25);
+            ultimi.forEach(r => {
+                const c = r.split(',');
+                if(c[0]) labels.push(c[0].split(' ')[1]); // Time only
+                valori.push(c[colIndex]);
+            });
+
+            document.getElementById('titoloGrafico').innerText = etichetta + " - Recent Readings";
+            document.getElementById('modalGrafico').style.display = 'block';
+
+            if (chartIstanza) chartIstanza.destroy();
+
+            const ctx = document.getElementById('chartCanvas').getContext('2d');
+            chartIstanza = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: etichetta,
+                        data: valori,
+                        borderColor: colore,
+                        backgroundColor: colore + '22',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { ticks: { color: '#888' }, grid: { display: false } },
+                        y: { ticks: { color: '#888' }, grid: { color: '#2d2d44' } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        async function caricaDati() {
+            try {
+                const res = await fetch('dati_arduino.csv?v=' + Date.now());
+                const testo = await res.text();
+                datiStorici = testo.trim().split('\n').slice(1);
+                
+                if (datiStorici.length > 0) {
+                    const last = datiStorici[datiStorici.length - 1].split(',');
+                    document.getElementById('val-temp').innerText = last[1] + "°C";
+                    document.getElementById('val-umi').innerText = last[2] + "%";
+                    document.getElementById('val-gas').innerText = last[3] + " ppm";
+                    document.getElementById('val-co2').innerText = last[4] + " ppm";
+                    document.getElementById('aggiornamento-testo').innerText = "Last update: " + last[0];
+                }
+            } catch (e) { console.error("Data error:", e); }
+        }
+
+        setInterval(caricaDati, 5000);
+        caricaDati();
+    </script>
+</body>
+</html>
