@@ -313,7 +313,6 @@ ul {
     height: 14px;
 }
 
-/*
 .language-btn .arrow {
     border: solid black;
     border-width: 0 2px 2px 0;
@@ -324,25 +323,7 @@ ul {
 
 .language-dropdown:hover .arrow {
     transform: rotate(-135deg);
-}*/
-/* Stato base della freccia */
-.language-btn .arrow {
-    display: inline-block; /* Assicura che le trasformazioni funzionino */
-    border: solid black;   /* Colore nero esplicito */
-    border-width: 0 2px 2px 0;
-    padding: 3px;
-    transform: rotate(45deg);
-    transition: transform 0.3s ease;
-    vertical-align: middle;
-    margin-left: 5px;
 }
-
-/* Rotazione al passaggio del mouse sul contenitore */
-.language-dropdown:hover .arrow {
-    transform: rotate(-135deg);
-    border-color: black; /* Rinforza il colore nero anche in hover */
-}
-/**/
 .language-menu {
     display: none;
     position: absolute;
