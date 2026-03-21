@@ -2068,3 +2068,39 @@ ul {
     border-right: 5px solid transparent;
     border-top: 5px solid white; /* Crea una piccola freccetta a punta verso il basso */
 }
+/* Contenitore per centrare il pulsante sull'asse X */
+.video-container {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    width: 100%;
+    padding: 40px 0; /* Spazio sopra e sotto il pulsante */
+}
+
+/* Stile del pulsante "Video" */
+.btn-video-large {
+    background-color: #1a252f; /* Colore scuro come lo sfondo delle card */
+    color: #3498db;           /* Colore azzurro come le icone */
+    padding: 18px 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;      /* Angoli arrotondati come le card */
+    border: 2px solid #3498db; /* Bordo azzurro per richiamare lo stile */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;               /* Spazio tra icona e testo */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Effetto al passaggio del mouse */
+.btn-video-large:hover {
+    background-color: #3498db;
+    color: white;
+    transform: translateY(-3px); /* Si alza leggermente */
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.btn-video-large i {
+    font-size: 1.4rem;
+}
